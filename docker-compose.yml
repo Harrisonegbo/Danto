@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - xauusd_data:/app
+    environment:
+      - SECRET_KEY=change_me_in_production_to_a_long_random_string
+    restart: unless-stopped
+
+volumes:
+  xauusd_data:

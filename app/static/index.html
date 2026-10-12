@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XAUUSD AI Research Platform</title>
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🥇 XAUUSD AI Research Platform</h1>
+      <p class="disclaimer">
+        Educational paper-trading research tool only • Not financial advice •
+        High risk of capital loss in real trading
+      </p>
+    </header>
+
+    <!-- AUTH -->
+    <section id="auth-section" class="card">
+      <h2>Login / Register</h2>
+      <div class="form-row">
+        <input id="username" type="text" placeholder="Username" autocomplete="username"/>
+        <input id="password" type="password" placeholder="Password" autocomplete="current-password"/>
+      </div>
+      <div class="form-row">
+        <button onclick="login()" class="btn primary">Login</button>
+        <button onclick="register()" class="btn">Register</button>
+      </div>
+      <p id="auth-msg" class="msg"></p>
+    </section>
+
+    <!-- APP -->
+    <section id="app-section" style="display:none">
+      <div class="top-bar">
+        <span>Welcome, <strong id="user-display"></strong></span>
+        <button onclick="logout()" class="btn small">Logout</button>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h2>📡 Paper Signals (WebSocket)</h2>
+          <p class="hint">Real-time paper-trading signals stream. No real orders are placed.</p>
+          <div id="signals" class="signal-box">
+            <p class="muted">Waiting for connection...</p>
+          </div>
+          <button onclick="sendPing()" class="btn small">Ping</button>
+        </div>
+
+        <div class="card">
+          <h2>📈 Saved Backtests</h2>
+          <button onclick="loadBacktests()" class="btn small">Refresh</button>
+          <div id="backtests" class="backtest-list">
+            <p class="muted">No backtests yet.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>ℹ️ About this platform</h2>
+        <ul>
+          <li>Triple-barrier labeling (López de Prado style)</li>
+          <li>Primary model + Meta-labeling</li>
+          <li>Advanced feature engineering (wavelets, Hurst, sessions…)</li>
+          <li>Vectorized barrier-aware backtester</li>
+          <li>PPO reinforcement-learning agent with sophisticated rewards</li>
+          <li>JWT authentication + SQLite storage</li>
+          <li>Real-time WebSocket paper signals</li>
+        </ul>
+        <p class="disclaimer">
+          This is a research and education tool. It does <strong>not</strong> constitute financial advice.
+          Always paper-trade extensively and never risk money you cannot afford to lose.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
